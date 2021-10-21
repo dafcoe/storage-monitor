@@ -1,0 +1,20 @@
+{
+  "name": "@dafcoe/storage-monitor-demo",
+  "version": "1.0.0",
+  "description": "Demo page for @dafcoe/storage-monitor",
+  "repository": "https://github.com/dafcoe/storage-monitor",
+  "author": "Daf Coe",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build:dev": "parcel ./src/index.html",
+    "build:prod": "parcel build ./src/index.html --no-source-maps --dist-dir ../docs/ --public-url ./"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0",
+    "parcel": "^2.0.0"
+  },
+  "dependencies": {
+    "@dafcoe/storage-monitor": "^0.1.8"
+  }
+}
