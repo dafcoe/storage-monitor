@@ -1,6 +1,6 @@
 {
   "name": "@dafcoe/storage-monitor",
-  "version": "0.1.9",
+  "version": "1.0.0",
   "description": "Simple monitor for local and session storage usage",
   "keywords": [
     "localstorage",
