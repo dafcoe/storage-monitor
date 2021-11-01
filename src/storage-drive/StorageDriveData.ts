@@ -1,9 +1,13 @@
 import md5 from 'md5';
 import { StorageDriveDataItemType } from './storage-drive.type';
-import { getStorageItemSize } from './storage-drive.helper';
+import {
+  debounce,
+  getStorageItemSize,
+} from './storage-drive.helper';
 import {
   EVENT_TYPE_DRIVE_DATA_CHANGE,
   DRIVE_UPDATE_POLL_WAIT_MS,
+  REFRESH_WAIT,
 } from './storage-drive.constant';
 
 export class StorageDriveData {
@@ -23,8 +27,8 @@ export class StorageDriveData {
     this.watchForChanges();
   }
 
-  public refresh(): Promise<void> {
-    return new Promise((resolve) => {
+  public refresh = debounce(
+    (): Promise<void> => new Promise((resolve) => {
       this.items = Object.keys(this.adapter).reduce((acc, cur) => ({
         ...acc,
         [cur]: {
@@ -38,8 +42,10 @@ export class StorageDriveData {
 
       resolve();
       this.updateChecksum();
-    });
-  }
+    }),
+    this,
+    REFRESH_WAIT,
+  ).bind(this);
 
   public sortBySize(): void {
     this.items = Object.keys(this.items)

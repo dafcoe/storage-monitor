@@ -43,7 +43,7 @@ An object of options where you can customize the widget visibility and the reloa
 ```js
 new StorageMonitor(localStorage, {
   showWidget: true,
-  autoReloadRateMs: 10000,  // in milisseconds | default: 5000 | minimum: 5000
+  autoReloadRateMs: 10000,  // in milisseconds | default: 1000 | minimum: 1000
 });
 ```
 

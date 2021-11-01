@@ -2,7 +2,7 @@ import { StorageMonitorOptionsType } from './storage-monitor.type';
 
 export const DEFAULT_ADAPTER: Storage = localStorage;
 
-export const DEFAULT_AUTO_RATE_MIN_MS = 5000;
+export const DEFAULT_AUTO_RATE_MIN_MS = 1000;
 
 export const DEFAULT_OPTIONS: StorageMonitorOptionsType = {
   showWidget: true,
